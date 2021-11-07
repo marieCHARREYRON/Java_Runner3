@@ -9,7 +9,7 @@ public class Camera {
         this.y = y;
 
     }
-
+//
     public int getX() {
         return x;
     }
