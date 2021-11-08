@@ -3,18 +3,27 @@ import org.w3c.dom.html.HTMLImageElement;
 public class Camera {
     private int x;
     private int y;
+    private double Vx=10;
+    private double ax;
+    private double dVx;
+    private double dx;
+    private Hero hero;
 
-    public Camera (int x, int y ){
+
+    public Camera (int x, int y, Hero hero){
+
         this.x = x;
         this.y = y;
+        this.hero=hero;
 
     }
-//
+
     public int getX() {
         return x;
     }
 
     public int getY() {
+
         return y;
     }
 
@@ -22,38 +31,16 @@ public class Camera {
         return "x : "+x+", y : "+y+"";
     }
 
-    public void update(long time) throws Exception{
-        method();}
-    private void method(){
+    public void update(double time ) {
 
-        int N = 16;
-        double[] S = new double[N+1];
-        double[] I = new double[N+1];
-        double[] R = new double[N+1];
+        this.ax= (hero.getX()-this.x)-1.2*Vx;
+        this.Vx+=ax*time;
+        this.x+=Vx*time;
 
-        S[0] = /* initial value */
+        hero.getAnime().setX(hero.getAnime().getX()-this.x+100);
 
-                I[0] = /* initial value */
 
-                        R[0] = /* initial value */
 
-        double dt = time / N;
-
-        for (int i = 0; i < 16; ++i)
-        {
-            double t = i*dt;
-            double l = /* compute l here */
-            double g = /* compute g here */
-
-            /* calculate derivatives */
-            double dSdt = - I[i] * S[i];
-            double dIdt = I[i] * S[i] - g * I[i];
-            double dRdt = g * I[i];
-
-            /* now integrate using Euler */
-            S[i+1] = S[i] + dSdt * dt;
-            I[i+1] = I[i] + dIdt * dt;
-            R[i+1] = R[i] + dRdt * dt;
-        }
     }
 }
+
