@@ -11,7 +11,6 @@ public class Camera {
 
 
     public Camera (double x, int y, Hero hero){
-
         this.x = x;
         this.y = y;
         this.hero=hero;
@@ -34,13 +33,7 @@ public class Camera {
        this.Vx+=ax*time;
        this.x+=Vx*time;
 
-
        hero.getAnime().setX(hero.getAnime().getX()-this.x+100);
-
-
-
-
-
     }
 }
 

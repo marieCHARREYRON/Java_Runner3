@@ -27,9 +27,7 @@ public class GameScene extends Scene {
 
         AnimationTimer timer = new AnimationTimer() {
             public void handle(long time) {
-
                 double dt = (time - val.x) / 200000000.0;
-
                 if (dt > 0.1) {
                     val.x=time;
 

@@ -7,9 +7,7 @@ public class staticThing {
     private double x;
     private double y;
 
-
     public staticThing(double x, double y, String fileName){
-
         this.x = x;
         this.y = y;
         Image staticImage = new Image(fileName);
@@ -17,7 +15,6 @@ public class staticThing {
         G.setX(x);
         G.setY(y);
     }
-
 
     public ImageView getIm() {
         return G;
