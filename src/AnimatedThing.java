@@ -14,6 +14,7 @@ abstract public class AnimatedThing {
     private double offset=25;
 
     public AnimatedThing(int Mood,double x,double y, String fileName){
+
         this.x = x;
         this.y = y;
         this.Mood = Mood;
@@ -28,4 +29,7 @@ abstract public class AnimatedThing {
         Mood = mood;
     }
 
+    public double getY() {
+        return y;
+    }
 }

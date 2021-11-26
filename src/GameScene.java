@@ -16,11 +16,12 @@ public class GameScene extends Scene {
     private staticThing left = new staticThing(0, 0, "desert.png");
     private staticThing right = new staticThing(800, 0, "desert.png");
     private Hero hero = new Hero(0, 200, 250, "heros.png");
+    private staticThing vie  = new staticThing(0, 0,"FUSEEMALADES.png" );
 
     public GameScene(Group root, double width, double height, boolean depthBuffer) {
 
         super(root, width, height, depthBuffer);
-        cam = new Camera(300, 200,hero);
+        cam = new Camera(0, 0,hero);
 
         longVal val = new longVal(System.nanoTime());
 
@@ -31,7 +32,13 @@ public class GameScene extends Scene {
 
                 if (dt > 0.1) {
                     val.x=time;
-                    hero.update(dt);
+
+                    if(hero.getMood()==0){
+                        hero.update(dt);
+                    }
+                    if(hero.getMood()==1){
+                        hero.jump(dt);
+                    }
                     cam.update(dt);
                     update(dt);
                 }
@@ -44,9 +51,12 @@ public class GameScene extends Scene {
             hero.setMood(1);
         });
 
+
+
         root.getChildren().add(left.getIm());
         root.getChildren().add(right.getIm());
         root.getChildren().add(hero.getAnime());
+        root.getChildren().add(vie.getIm());
     }
 
 

@@ -1,7 +1,7 @@
 import org.w3c.dom.html.HTMLImageElement;
 
 public class Camera {
-    private int x;
+    private double x;
     private int y;
     private double Vx=10;
     private double ax;
@@ -10,7 +10,7 @@ public class Camera {
     private Hero hero;
 
 
-    public Camera (int x, int y, Hero hero){
+    public Camera (double x, int y, Hero hero){
 
         this.x = x;
         this.y = y;
@@ -18,14 +18,11 @@ public class Camera {
 
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
-
-        return y;
-    }
+    public int getY() {return y;}
 
     public String toString(){
         return "x : "+x+", y : "+y+"";
@@ -33,11 +30,14 @@ public class Camera {
 
     public void update(double time ) {
 
-        this.ax= (hero.getX()-this.x)-1.2*Vx;
-        this.Vx+=ax*time;
-        this.x+=Vx*time;
+       this.ax= (hero.getX()-this.x)-1.2*Vx;
+       this.Vx+=ax*time;
+       this.x+=Vx*time;
 
-        hero.getAnime().setX(hero.getAnime().getX()-this.x+100);
+
+       hero.getAnime().setX(hero.getAnime().getX()-this.x+100);
+
+
 
 
 
